@@ -1,6 +1,5 @@
 [core]
     remote = myremote
 ['remote "myremote"']
-    url = gdrive://1Y_EZMBa3Xp8lESw_5EnyEmSr1C749rWk
-    gdrive_use_service_account = true
-    gdrive_service_account_json_file_path = C:\Users\User\Downloads\striped-history-495911-u0-52f1cd615cb5.json
+    url = s3://financial-sentiment-dvc/project2
+    region = eu-north-1
