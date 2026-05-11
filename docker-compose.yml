@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    container_name: politician-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
