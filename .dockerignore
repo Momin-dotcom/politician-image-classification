@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.git/
+*.md
+tests/
+create_dummy_model.py
+frontend/
+.github/
