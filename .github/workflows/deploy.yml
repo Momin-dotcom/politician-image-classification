@@ -57,9 +57,10 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          command_timeout: 5m
+          command_timeout: 10m
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/politician-classifier:latest
+            docker pull ${{ secrets.DOCKER_USERNAME }}/politician-classifier:latest &
+            wait
             docker stop politician-api || true
             docker rm politician-api || true
             docker run -d \
