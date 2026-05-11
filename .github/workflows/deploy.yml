@@ -57,6 +57,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
+          command_timeout: 5m
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/politician-classifier:latest
             docker stop politician-api || true
