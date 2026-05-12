@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pakistani Politician Classifier</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <h1>🇵🇰 Pakistani Politician Classifier</h1>
+      <p>Upload a face image to identify the politician using deep learning</p>
+    </div>
+
+    <div class="upload-section">
+      <div class="upload-box" id="uploadBox">
+        <input type="file" id="imageInput" accept="image/*" hidden />
+        <label for="imageInput" class="upload-label">
+          <div class="upload-icon">📁</div>
+          <div class="upload-text">Click to upload image</div>
+          <div class="upload-subtext">Supports JPG, PNG</div>
+        </label>
+      </div>
+      <img id="preview" src="" alt="Preview" hidden />
+    </div>
+
+    <button id="predictBtn" onclick="predict()" disabled>
+      🔍 Classify Politician
+    </button>
+
+    <div id="loading" hidden>
+      <div class="spinner"></div>
+      <p>Analyzing image...</p>
+    </div>
+
+    <div id="results" hidden>
+      <h2>Top 3 Predictions</h2>
+      <div id="predictionCards"></div>
+    </div>
+
+    <div id="error" class="error" hidden></div>
+
+    <div class="footer">
+      <p>Powered by ResNet-50 | CNN Deep Learning Model</p>
+      <p>16 Pakistani Public Figures</p>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
