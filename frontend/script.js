@@ -1,4 +1,4 @@
-const API_URL = "http://35.153.175.14:8000";
+const API_BASE = "/api";
 
 document.getElementById("imageInput").addEventListener("change", function () {
   const file = this.files[0];
@@ -27,7 +27,7 @@ async function predict() {
   formData.append("file", file);
 
   try {
-    const res = await fetch(`${API_URL}/predict`, {
+    const res = await fetch(`${API_BASE}/predict`, {
       method: "POST",
       body: formData,
     });
