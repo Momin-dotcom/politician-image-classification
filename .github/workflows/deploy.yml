@@ -69,5 +69,6 @@ jobs:
               --memory="900m" \
               --memory-swap="2g" \
               --restart unless-stopped \
+              -v /home/ubuntu/best_model.pth:/app/models/best_model.pth \
               ${{ secrets.DOCKER_USERNAME }}/politician-classifier:latest
             docker ps
