@@ -1,3 +1,4 @@
+import os
 import torch
 import torch.nn as nn
 import torchvision.models as models
@@ -9,11 +10,13 @@ CLASS_NAMES = [
     "asim_munir", "shah_mahmood_qureshi", "khurshid_shah", "ahsan_iqbal"
 ]
 
-# Using ResNet50 — swap this to whatever Member 1 used
-model = models.resnet50(weights=None)
-model.fc = nn.Linear(model.fc.in_features, len(CLASS_NAMES))
+MODEL_PATH = "models/best_model.pth"
 
-# Save dummy weights
-torch.save(model.state_dict(), "models/best_model.pth")
-print(f"Dummy model saved with {len(CLASS_NAMES)} classes")
-print("Classes:", CLASS_NAMES)
+if os.path.exists(MODEL_PATH):
+    print(f"Real model already exists at {MODEL_PATH}, skipping dummy creation.")
+else:
+    os.makedirs("models", exist_ok=True)
+    model = models.resnet50(weights=None)
+    model.fc = nn.Linear(model.fc.in_features, len(CLASS_NAMES))
+    torch.save(model.state_dict(), MODEL_PATH)
+    print(f"Dummy model created at {MODEL_PATH}")
